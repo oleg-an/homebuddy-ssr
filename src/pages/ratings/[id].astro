@@ -1,0 +1,29 @@
+---
+import Layout from 'layouts/Layout.astro';
+import type { ContractorModel } from 'api/models';
+import { getContractors } from 'api/api';
+import Breadcrumbs from 'components/Breadcrumbs.astro';
+
+export async function getStaticPaths() {
+  return (await getContractors()).map((contractor) => ({
+    params: { id: contractor.contractorId },
+    props: { contractor },
+  }));
+}
+
+interface Props {
+  contractor: ContractorModel;
+}
+
+//const {id} = Astro.params;
+const { contractor } = Astro.props;
+---
+<Layout title={contractor.contractorName}>
+  <div class="container">
+    <Breadcrumbs slugsAliases={[ {
+      slug: contractor.contractorId.toString(),
+      title: contractor.contractorName
+    } ]}/>
+    <h1 class="text-blue-600 font-semibold text-lg">{contractor.contractorName}</h1>
+  </div>
+</Layout>

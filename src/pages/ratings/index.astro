@@ -1,0 +1,21 @@
+---
+import { getContractors } from 'api/api';
+import Layout from 'layouts/Layout.astro';
+import Breadcrumbs from 'components/Breadcrumbs.astro';
+
+const contractorsList = await getContractors();
+---
+<Layout title="Ratings">
+  <div class="container">
+    <Breadcrumbs/>
+    <ul>
+      {contractorsList.map(item => (
+          <li>
+            <a href={`${Astro.url.pathname}/${item.contractorId}`}
+               class="inline-block font-medium text-deep-blue-500 hover:underline mb-1">
+              {item.contractorName}
+            </a>
+          </li>))}
+    </ul>
+  </div>
+</Layout>

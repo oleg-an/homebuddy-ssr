@@ -1,0 +1,17 @@
+---
+import classNames from 'classnames';
+interface Props {
+  class: string;
+  disabled: boolean;
+  loading: boolean;
+}
+
+const { class: className, disabled, loading } = Astro.props;
+---
+
+<button disabled={disabled || loading} class={classNames(
+  'transition duration-200 h-14 bg-orange-500 text-white font-medium px-6 rounded-sm hover:bg-orange-600',
+  'disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-60',
+  className)}>
+  <slot/>
+</button>
