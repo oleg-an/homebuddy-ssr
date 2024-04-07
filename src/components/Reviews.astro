@@ -9,22 +9,24 @@ const { items } = Astro.props;
 ---
 
 <div style="background-color: #f5f6fe">
-  <div class="container p-10">
+  <div class="container py-10 px-8">
     <h1 class="text-center text-xl font-extrabold mb-6">What People Are Saying</h1>
     <div class="swiffy-slider slider-item-show3 slider-item-show1-sm">
       <ul class="slider-container">
         {items.map(review =>
             <li class="slide-visible">
-              <div class="flex flex-col items-center justify-between bg-white rounded-xl p-8 h-full"
-                   style="box-shadow: 0 4px 15px rgba(47,84,235,.15);">
-                <div class="flex flex-1 flex-col items-center">
-                  <img alt="" class="h-[71px] w-[71px] mb-4" src="/user.svg"/>
-                  <div class="mb-4 font-medium">{review.author}</div>
-                  <img alt="" class="h-6 mb-4" src="/rating.svg"/>
-                  <div class="font-medium text-sm">{review.text}</div>
-                </div>
-                <div>
-                  <a class="font-medium text-xs text-deep-blue-400" href={review.link.url}>{review.link.title}</a>
+              <div class="p-4 h-full">
+                <div class="flex flex-col items-center justify-between bg-white rounded-xl h-full p-10"
+                     style="box-shadow: 0 4px 15px rgba(47,84,235,.15);">
+                  <div class="flex flex-1 flex-col items-center">
+                    <img alt="" class="h-[71px] w-[71px] mb-4" src="/user.svg"/>
+                    <div class="mb-4 font-medium">{review.author}</div>
+                    <img alt="" class="h-6 mb-4" src="/rating.svg"/>
+                    <div class="font-medium text-sm">{review.text}</div>
+                  </div>
+                  <div>
+                    <a class="font-medium text-xs text-deep-blue-400" href={review.link.url}>{review.link.title}</a>
+                  </div>
                 </div>
               </div>
             </li>)}
