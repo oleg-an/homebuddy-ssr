@@ -161,7 +161,7 @@ export default {
     theme: {
         extend: {
             screens: {
-                xl: '1200px',
+                '2xl': '1200px',
             },
             container: {
                 center: true,

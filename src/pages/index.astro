@@ -2,8 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Reviews from '../components/Reviews.astro';
 import { reviewsList } from '../api/mock/reviews';
+import PhotoGallery from '../components/PhotoGallery.astro';
+import { PhotoGalleryModel } from '../api/models';
 
+const photoGalleryItems: PhotoGalleryModel[] = [
+  { image: '/photo-gallery/gallery-1-desktop.jpg' },
+  { image: '/photo-gallery/gallery-2-desktop.jpg' },
+  { image: '/photo-gallery/gallery-3-desktop.jpg' },
+  { image: '/photo-gallery/gallery-4-desktop.jpg' },
+  { image: '/photo-gallery/gallery-5-desktop.jpg' }
+];
 ---
 <Layout title="Title">
-  <Reviews items={reviewsList} />
+  <Reviews items={reviewsList}/>
+  <div class="h-[100px]"></div>
+  <PhotoGallery items={photoGalleryItems}></PhotoGallery>
 </Layout>

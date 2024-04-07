@@ -20,3 +20,7 @@ export interface ReviewModel {
     url: string;
   }
 }
+
+export interface PhotoGalleryModel {
+  image: string
+}
