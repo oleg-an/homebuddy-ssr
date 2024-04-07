@@ -1,11 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Reviews from '../components/Reviews.astro';
+import { reviewsList } from '../api/mock/reviews';
+
 ---
 <Layout title="Title">
-  <div class="bg-deep-blue-100">
-    <div class="container p-5">
-      <Reviews />
-    </div>
-  </div>
+  <Reviews items={reviewsList} />
 </Layout>

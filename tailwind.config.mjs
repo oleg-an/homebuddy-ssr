@@ -160,6 +160,9 @@ export default {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
     theme: {
         extend: {
+            screens: {
+                xl: '1200px',
+            },
             container: {
                 center: true,
                 padding: '4px',
@@ -171,7 +174,7 @@ export default {
                 sm: ['14px', '20px'],
                 base: ['16px', '24px'],
                 lg: ['18px', '24px'],
-                xl: ['23px', '32px'],
+                xl: ['25px', '36px'],
                 '2xl': ['32px', '36px'],
             },
             borderRadius: {
