@@ -11,3 +11,12 @@ export interface ContractorModel {
   }[];
   linkToImage: string;
 }
+
+export interface ReviewModel {
+  author: string;
+  text: string;
+  link: {
+    title: string;
+    url: string;
+  }
+}
