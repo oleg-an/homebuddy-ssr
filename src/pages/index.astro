@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Reviews from '../components/Reviews.astro';
 import { reviewsList } from '../api/mock/reviews';
 import PhotoGallery from '../components/PhotoGallery.astro';
-import { PhotoGalleryModel } from '../api/models';
+import type { PhotoGalleryModel } from '../api/models';
 
 const photoGalleryItems: PhotoGalleryModel[] = [
   { image: '/photo-gallery/gallery-1-desktop.jpg' },
