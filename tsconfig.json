@@ -4,7 +4,7 @@
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
-      },
+      }
     ],
     "baseUrl": "src",
     "paths": {
@@ -12,6 +12,7 @@
       "public/*": ["public/*"],
       "layouts/*": ["layouts/*"],
       "api/*": ["api/*"]
-    }
+    },
+    "jsx": "react"
   }
 }
