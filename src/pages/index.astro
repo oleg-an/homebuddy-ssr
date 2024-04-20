@@ -4,7 +4,7 @@ import Reviews from '../components/Reviews.astro';
 import { reviewsList } from '../api/mock/reviews';
 import PhotoGallery from '../components/PhotoGallery.astro';
 import type { PhotoGalleryModel } from '../api/models';
-import { Wizard } from '../components/Wizard';
+import { ZipInput } from '../components/ZipInput';
 
 const photoGalleryItems: PhotoGalleryModel[] = [
   { image: '/photo-gallery/gallery-1-desktop.jpg' },
@@ -15,7 +15,9 @@ const photoGalleryItems: PhotoGalleryModel[] = [
 ];
 ---
 <Layout title="Title">
-  <Wizard client:load/>
+  <div class="container p-4">
+    <ZipInput client:load/>
+  </div>
   <Reviews items={reviewsList}/>
   <div class="h-[100px]"></div>
   <PhotoGallery items={photoGalleryItems}></PhotoGallery>
