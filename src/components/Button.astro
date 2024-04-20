@@ -1,12 +1,12 @@
 ---
 import classNames from 'classnames';
 interface Props {
-  class: string;
+  className?: string;
   disabled?: boolean;
   loading?: boolean;
 }
 
-const { class: className, disabled, loading } = Astro.props;
+const { className, disabled, loading } = Astro.props;
 ---
 
 <button disabled={disabled || loading} class={classNames(

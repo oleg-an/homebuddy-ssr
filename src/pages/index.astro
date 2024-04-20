@@ -4,6 +4,7 @@ import Reviews from '../components/Reviews.astro';
 import { reviewsList } from '../api/mock/reviews';
 import PhotoGallery from '../components/PhotoGallery.astro';
 import type { PhotoGalleryModel } from '../api/models';
+import { Wizard } from '../react-components/Wizard';
 
 const photoGalleryItems: PhotoGalleryModel[] = [
   { image: '/photo-gallery/gallery-1-desktop.jpg' },
@@ -14,6 +15,7 @@ const photoGalleryItems: PhotoGalleryModel[] = [
 ];
 ---
 <Layout title="Title">
+  <Wizard client:load/>
   <Reviews items={reviewsList}/>
   <div class="h-[100px]"></div>
   <PhotoGallery items={photoGalleryItems}></PhotoGallery>
