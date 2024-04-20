@@ -1,10 +1,11 @@
-import { getStorage, setProjectAlias, zipDataLayer } from 'api/utils.ts';
+import { getStorage, zipDataLayer } from 'api/utils.ts';
 import type { ProjectAliasesEnum } from 'const/ProjectAliasesEnum.ts';
 import { makeRequest } from './makeRequest.ts';
 import type { CreateLeadResponse } from '../model';
+import { useState } from 'react';
 
-export async function createLead(projectAlias: ProjectAliasesEnum, zipCode: string) {
-  setProjectAlias(projectAlias);
+export async function createLead({ projectAlias, zipCode }: { projectAlias: ProjectAliasesEnum, zipCode: string }) {
+  //setProjectAlias(projectAlias);
   zipDataLayer(zipCode);
 
   return makeRequest<{ data: CreateLeadResponse }>('POST', '/api/leads', {
@@ -13,6 +14,20 @@ export async function createLead(projectAlias: ProjectAliasesEnum, zipCode: stri
     queryData: getQuery(),
     browserData: await getBrowserData(),
   }).then((x) => x.data);
+}
+
+export function useCreateLead() {
+  const [ loading, setLoading ] = useState(false);
+
+  return {
+    createLead: ({ zipCode }: { projectAlias: ProjectAliasesEnum, zipCode: string }) => {
+      setLoading(true);
+      createLead({ zipCode, projectAlias }).then(_ => {
+        setLoading(false);
+      }).catch(() => setLoading(false));
+    },
+    loading
+  };
 }
 
 function getQuery() {
