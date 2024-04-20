@@ -20,9 +20,9 @@ export function useCreateLead() {
   const [ loading, setLoading ] = useState(false);
 
   return {
-    createLead: ({ zipCode }: { projectAlias: ProjectAliasesEnum, zipCode: string }) => {
+    create: (params: { projectAlias: ProjectAliasesEnum, zipCode: string }) => {
       setLoading(true);
-      createLead({ zipCode, projectAlias }).then(_ => {
+      createLead(params).then(_ => {
         setLoading(false);
       }).catch(() => setLoading(false));
     },

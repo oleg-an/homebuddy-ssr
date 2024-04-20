@@ -4,10 +4,9 @@ import { useCreateLead } from 'api/api.ts';
 import { ProjectAliasesEnum } from '../const/ProjectAliasesEnum.ts';
 
 export function ZipInput() {
-  const { createLead, loading } = useCreateLead();
-
+  const { create, loading } = useCreateLead();
   const clickHandler = () => {
-    createLead({
+    create({
       zipCode: '10001',
       projectAlias: ProjectAliasesEnum.WalkInShowers
     });
