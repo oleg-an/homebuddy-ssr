@@ -1,6 +1,6 @@
 import { Button } from './Button.tsx';
 import { Input } from './Input.tsx';
-import { useCreateLead } from 'api/api.ts';
+import { useCreateLead } from 'hooks';
 import { ProjectAliasesEnum } from '../const/ProjectAliasesEnum.ts';
 
 export function ZipInput() {

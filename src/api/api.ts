@@ -3,6 +3,7 @@ import type { ProjectAliasesEnum } from 'const/ProjectAliasesEnum.ts';
 import { makeRequest } from './makeRequest.ts';
 import type { CreateLeadResponse } from '../model';
 import { useState } from 'react';
+import { render } from 'react-dom';
 
 export async function createLead({ projectAlias, zipCode }: { projectAlias: ProjectAliasesEnum, zipCode: string }) {
   //setProjectAlias(projectAlias);
@@ -14,20 +15,6 @@ export async function createLead({ projectAlias, zipCode }: { projectAlias: Proj
     queryData: getQuery(),
     browserData: await getBrowserData(),
   }).then((x) => x.data);
-}
-
-export function useCreateLead() {
-  const [ loading, setLoading ] = useState(false);
-
-  return {
-    create: (params: { projectAlias: ProjectAliasesEnum, zipCode: string }) => {
-      setLoading(true);
-      createLead(params).then(_ => {
-        setLoading(false);
-      }).catch(() => setLoading(false));
-    },
-    loading
-  };
 }
 
 function getQuery() {
@@ -110,4 +97,13 @@ function getXLandingPage(): Promise<string | null> {
       }
     };
   });
+}
+
+export function renderWizardBuilder(wizardComponent: JSX.Element) {
+  const div = document.createElement('div');
+  div.classList.add('h-100');
+  document.getElementsByTagName('body')[0].innerHTML = '';
+  document.body.append(div);
+
+  render(wizardComponent, div);
 }
