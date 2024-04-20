@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { h } from 'preact';
+import React from 'react';
 
 interface ButtonProps {
   disabled?: boolean;
