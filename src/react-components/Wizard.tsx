@@ -6,4 +6,3 @@ export function Wizard({}) {
     <Button>Test</Button>
   </>;
 }
-
