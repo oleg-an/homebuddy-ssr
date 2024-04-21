@@ -3,7 +3,7 @@ import { ZipInput } from 'components/ZipInput.tsx';
 import { useCreateLead } from '../../hooks';
 import { ProjectAliasesEnum } from '../../const/ProjectAliasesEnum.ts';
 import { Wizard } from './Wizard.tsx';
-import { WizardWrapper } from 'components/WizardWrapper.tsx';
+import { WizardWrapper } from '../../wizard/WizardWrapper.tsx';
 
 export function GetEstimate() {
   const { create, loading, leadResponse } = useCreateLead();
