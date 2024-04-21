@@ -100,16 +100,3 @@ function getXLandingPage(): Promise<string | null> {
     };
   });
 }
-
-export function getHost() {
-  if (process.env.API_HOST) {
-    return `${process.env.API_HOST}/public`;
-  }
-  if (process.env.NODE_ENV === 'production') {
-    const match = window.location.host.match(/hb-([a-z]+).stage.sirenltd.dev/i);
-    if (match?.length && match[1]) {
-      return `https://api-${match[1]}.stage.sirenltd.dev/v1/public`;
-    }
-  }
-  return '/public';
-}
