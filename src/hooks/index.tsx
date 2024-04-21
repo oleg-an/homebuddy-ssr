@@ -7,17 +7,18 @@ export function useCreateLead() {
   const [ loading, setLoading ] = useState(false);
 
   return {
-    create: async (params: { projectAlias: ProjectAliasesEnum, zipCode: string }) => {
+    create: (params: { projectAlias: ProjectAliasesEnum, zipCode: string }) => {
       setLoading(true);
 
-      try {
-        const leadResponse = await createLead(params);
-        setWizardProps(leadResponse);
-        await import('components/Wizard.tsx');
-      } catch (e) {
+      createLead(params).then((response) => {
+        setWizardProps(response);
+        import('components/Wizard.tsx').catch(() => {
+          // window.location.href = '/error';
+        });
+      }).catch(() => {
         // window.location.href = '/error';
         setLoading(false);
-      }
+      });
     },
     loading
   };
