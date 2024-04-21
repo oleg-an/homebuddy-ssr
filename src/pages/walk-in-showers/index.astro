@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Reviews from '../components/Reviews.astro';
-import PhotoGallery from '../components/PhotoGallery.astro';
-import type { PhotoGalleryModel } from '../api/models';
-import { GetEstimate } from '../components/GetEstimate';
-import { reviewsList } from '../api/reviews';
+import Layout from '../../layouts/Layout.astro';
+import Reviews from '../../components/Reviews.astro';
+import PhotoGallery from '../../components/PhotoGallery.astro';
+import type { PhotoGalleryModel } from '../../api/models';
+import { GetEstimate } from '../../components/GetEstimate';
+import { reviewsList } from '../../api/reviews';
 
 const photoGalleryItems: PhotoGalleryModel[] = [
   { image: '/photo-gallery/gallery-1-desktop.jpg' },
