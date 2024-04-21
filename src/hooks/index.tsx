@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { ProjectAliasesEnum } from '../const/ProjectAliasesEnum.ts';
+import type { ProjectAliasesEnum } from 'const/ProjectAliasesEnum.ts';
 import { createLead } from 'api/api.ts';
 
 export function useCreateLead() {
@@ -13,7 +13,7 @@ export function useCreateLead() {
         console.log(x);
         setLoading(false);
       }).catch(() => {
-        console.log('dd');
+       // window.location.href = '/error';
         setLoading(false);
       });
     },

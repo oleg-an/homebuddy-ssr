@@ -2,7 +2,6 @@ import { getStorage, zipDataLayer } from 'api/utils.ts';
 import type { ProjectAliasesEnum } from 'const/ProjectAliasesEnum.ts';
 import { makeRequest } from './makeRequest.ts';
 import type { CreateLeadResponseModel } from '../model';
-import { useState } from 'react';
 import { render } from 'react-dom';
 
 export async function createLead({ projectAlias, zipCode }: { projectAlias: ProjectAliasesEnum, zipCode: string }) {
@@ -99,11 +98,15 @@ function getXLandingPage(): Promise<string | null> {
   });
 }
 
-export function renderWizard(wizardComponent: JSX.Element) {
-  const div = document.createElement('div');
-  div.classList.add('h-100');
-  document.getElementsByTagName('body')[0].innerHTML = '';
-  document.body.append(div);
-
-  render(wizardComponent, div);
+export function getHost() {
+  if (process.env.API_HOST) {
+    return `${process.env.API_HOST}/public`;
+  }
+  if (process.env.NODE_ENV === 'production') {
+    const match = window.location.host.match(/hb-([a-z]+).stage.sirenltd.dev/i);
+    if (match?.length && match[1]) {
+      return `https://api-${match[1]}.stage.sirenltd.dev/v1/public`;
+    }
+  }
+  return '/public';
 }

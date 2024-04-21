@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie';
 import type { ProjectAliasesEnum } from 'const/ProjectAliasesEnum.ts';
 import type { CreateLeadResponseModel } from '../model';
+import { render } from 'react-dom';
 
 export function GoToVerticalMainPage() {
   window.location.reload();
@@ -82,3 +83,14 @@ export function zipDataLayer(zip: string) {
 export function getWizardProps(): CreateLeadResponseModel {
   return window.leadResponse;
 }
+
+export function renderWizard(wizardComponent: JSX.Element) {
+  const div = document.createElement('div');
+  div.classList.add('h-100');
+  document.getElementsByTagName('body')[0].innerHTML = '';
+  document.body.append(div);
+
+  render(wizardComponent, div);
+}
+
+
