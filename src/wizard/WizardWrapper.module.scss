@@ -1,0 +1,15 @@
+.wrapper {
+  overflow: hidden;
+  z-index: 2;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  width: 100%;
+  position: relative;
+  max-width: 800px;
+  margin: 158px auto 0;
+}
+
+.childrenWrapper {
+  padding-bottom: 33px;
+}
