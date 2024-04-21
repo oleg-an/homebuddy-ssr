@@ -1,7 +1,9 @@
-import { renderWizardBuilder } from 'api/api.ts';
+import { renderWizard } from 'api/api.ts';
+import type { CreateLeadResponseModel } from '../model';
+import { getWizardProps } from 'api/utils.ts';
 
-export function Wizard() {
+export function Wizard({ params }: { params: CreateLeadResponseModel }) {
   return <div>svds</div>;
 }
 
-renderWizardBuilder(<Wizard />);
+renderWizard(<Wizard params={getWizardProps()}/>);

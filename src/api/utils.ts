@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 import type { ProjectAliasesEnum } from 'const/ProjectAliasesEnum.ts';
+import type { CreateLeadResponseModel } from '../model';
 
 export function GoToVerticalMainPage() {
   window.location.reload();
@@ -76,4 +77,8 @@ export function zipDataLayer(zip: string) {
   localStorage.setItem('DataLayerZip', zip);
   window.dataLayer.push({ event: 'autoEvent', eventCategory: 'FormSubmits', eventAction: 'Step1Submit' });
   window.dataLayer.push({ zip });
+}
+
+export function getWizardProps(): CreateLeadResponseModel {
+  return window.leadResponse;
 }

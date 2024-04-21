@@ -1,7 +1,7 @@
 import { getStorage, zipDataLayer } from 'api/utils.ts';
 import type { ProjectAliasesEnum } from 'const/ProjectAliasesEnum.ts';
 import { makeRequest } from './makeRequest.ts';
-import type { CreateLeadResponse } from '../model';
+import type { CreateLeadResponseModel } from '../model';
 import { useState } from 'react';
 import { render } from 'react-dom';
 
@@ -9,7 +9,7 @@ export async function createLead({ projectAlias, zipCode }: { projectAlias: Proj
   //setProjectAlias(projectAlias);
   zipDataLayer(zipCode);
 
-  return makeRequest<{ data: CreateLeadResponse }>('POST', '/api/leads', {
+  return makeRequest<{ data: CreateLeadResponseModel }>('POST', '/api/leads', {
     zipCode,
     projectAlias,
     queryData: getQuery(),
@@ -99,7 +99,7 @@ function getXLandingPage(): Promise<string | null> {
   });
 }
 
-export function renderWizardBuilder(wizardComponent: JSX.Element) {
+export function renderWizard(wizardComponent: JSX.Element) {
   const div = document.createElement('div');
   div.classList.add('h-100');
   document.getElementsByTagName('body')[0].innerHTML = '';

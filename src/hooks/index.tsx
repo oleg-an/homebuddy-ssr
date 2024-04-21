@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ProjectAliasesEnum } from '../const/ProjectAliasesEnum.ts';
+import { createLead } from 'api/api.ts';
 
 export function useCreateLead() {
   const [ loading, setLoading ] = useState(false);
@@ -7,13 +8,14 @@ export function useCreateLead() {
   return {
     create: (params: { projectAlias: ProjectAliasesEnum, zipCode: string }) => {
       setLoading(true);
-      import('components/Wizard.tsx').then();
 
-      /*
-        createLead(params).then(_ => {
-          setLoading(false);
-        }).catch(() => setLoading(false));
-       */
+      Promise.all([ createLead(params), import('components/Wizard.tsx') ]).then((x, y) => {
+        console.log(x);
+        setLoading(false);
+      }).catch(() => {
+        console.log('dd');
+        setLoading(false);
+      });
     },
     loading
   };

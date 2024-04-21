@@ -1,7 +1,9 @@
-export interface CreateLeadResponse {
-  campaign: {
+export interface CreateLeadResponseModel {
+  isOutOfArea?: boolean;
+  uuid?: string;
+  subscriptionAlias?: string;
+  subscriptionType?: string;
+  campaign?: {
     alias: string;
   };
-  isOutOfArea: boolean;
-  uuid: string;
 }
