@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Reviews from '../components/Reviews.astro';
 import PhotoGallery from '../components/PhotoGallery.astro';
 import type { PhotoGalleryModel } from '../api/models';
-import { ZipInput } from '../components/ZipInput';
+import { GetEstimate } from '../components/GetEstimate';
 import { reviewsList } from '../api/reviews';
 
 const photoGalleryItems: PhotoGalleryModel[] = [
@@ -16,7 +16,7 @@ const photoGalleryItems: PhotoGalleryModel[] = [
 ---
 <Layout title="Title">
   <div class="container p-4">
-    <ZipInput client:load/>
+    <GetEstimate client:load/>
   </div>
   <Reviews items={reviewsList}/>
   <div class="h-[100px]"></div>

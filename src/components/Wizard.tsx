@@ -1,8 +1,9 @@
 import type { CreateLeadResponseModel } from '../model';
 import { getWizardProps, renderWizard } from 'api/utils.ts';
 
-export function Wizard({ params }: { params: CreateLeadResponseModel }) {
-  return <div>svds</div>;
+export function Wizard({ leadResponse }: { leadResponse: CreateLeadResponseModel }) {
+  console.log(leadResponse);
+  return <div>{leadResponse.uuid}</div>;
 }
 
-renderWizard(<Wizard params={getWizardProps()}/>);
+renderWizard(<Wizard leadResponse={getWizardProps()}/>);

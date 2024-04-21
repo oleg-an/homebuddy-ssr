@@ -84,6 +84,10 @@ export function getWizardProps(): CreateLeadResponseModel {
   return window.leadResponse;
 }
 
+export function setWizardProps(wizardProps: unknown) {
+  window.leadResponse = wizardProps;
+}
+
 export function renderWizard(wizardComponent: JSX.Element) {
   const div = document.createElement('div');
   div.classList.add('h-100');
@@ -92,5 +96,3 @@ export function renderWizard(wizardComponent: JSX.Element) {
 
   render(wizardComponent, div);
 }
-
-

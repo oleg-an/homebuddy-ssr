@@ -1,14 +1,17 @@
-import { getStorage, zipDataLayer } from 'api/utils.ts';
+import { getStorage } from 'api/utils.ts';
 import type { ProjectAliasesEnum } from 'const/ProjectAliasesEnum.ts';
 import { makeRequest } from './makeRequest.ts';
 import type { CreateLeadResponseModel } from '../model';
-import { render } from 'react-dom';
+
+function getApiHost() {
+  return import.meta.env.PUBLIC_API_HOST;
+}
 
 export async function createLead({ projectAlias, zipCode }: { projectAlias: ProjectAliasesEnum, zipCode: string }) {
   //setProjectAlias(projectAlias);
-  zipDataLayer(zipCode);
+  //zipDataLayer(zipCode);
 
-  return makeRequest<{ data: CreateLeadResponseModel }>('POST', '/api/leads', {
+  return makeRequest<{ data: CreateLeadResponseModel }>('POST', `${getApiHost()}/leads`, {
     zipCode,
     projectAlias,
     queryData: getQuery(),
